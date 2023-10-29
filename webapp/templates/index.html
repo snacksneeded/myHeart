@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Heart Health Checker</title>
+</head>
+<body>
+    <h1>Welcome to Your Heart Health Checker!</h1>
+
+    <p>Let's take a look at your heart health. Please fill in the information below to the best of your knowledge.</p>
+
+    <!-- Form to collect user input. -->
+    <form method="post">
+        <label for="age">How old are you?</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">What's your gender? (1 for male, 0 for female)</label>
+        <input type="number" id="gender" name="gender" required><br>
+
+        <label for="chestpain">Do you experience chest pain? (0: No pain, 1-4: Increasing severity)</label>
+        <input type="number" id="chestpain" name="chestpain" required><br>
+
+        <label for="restingblood">What's your resting blood pressure?</label>
+        <input type="number" id="restingblood" name="restingblood" required><br>
+
+        <label for="chol">What's your serum cholesterol level in mg/dL?</label>
+        <input type="number" id="chol" name="chol" required><br>
+
+        <label for="fastingblood">Is your fasting blood sugar over 120 mg/dL? (1: Yes, 0: No)</label>
+        <input type="number" id="fastingblood" name="fastingblood" required><br>
+
+        <label for="restingECG">How's your resting ECG? (0-2, where 0 is normal)</label>
+        <input type="number" id="restingECG" name="restingECG" required><br>
+
+        <label for="maximumheartrate">Enter maximum heart rate achieved: </label>
+        <input type="number" id="maximumheartrate" name="maximumheartrate" required><br>
+
+        <label for="angina">Enter exercise induced angina (1 for yes, o for no): </label>
+        <input type="number" id="angina" name="angina" required><br>
+
+        <label for="STdepression">Enter ST depression induced by exercise relative to rest(0 to 6.2):</label>
+        <input type="number" id="STdepression" name="STdepression" step="0.1" required><br>
+
+        <label for="slope">What's the slope of your peak exercise ST segment? (0-2)</label>
+        <input type="number" id="slope" name="slope" required><br>
+
+        <label for="fluoroscopy">Enter number of major vessels colored by fluoroscopy ? (0-3)</label>
+        <input type="number" id="fluoroscopy" name="fluoroscopy" required><br>
+
+        <label for="thallium">Enter thallium stress test result (0-3):</label>
+        <input type="number" id="thallium" name="thallium" required><br>
+
+        <input type="submit" value="Let's Check">
+    </form>
+
+    <!-- Displaying the result. -->
+    {% if probability is not none %}
+        <h2>Your heart health score is: {{ probability|round(2) }}%</h2>
+    {% endif %}
+</body>
+</html>
